@@ -1,5 +1,12 @@
 # Transform JavaScript Script to Skill Service
 
+<!-- 561-group-standards:badges:start -->
+[![Red Cup Engineering](https://img.shields.io/badge/561%20Group-Red%20Cup%20Engineering-c0392b)](https://github.com/red-cup-engineering)
+[![License: MIT](https://img.shields.io/badge/license-MIT-c0392b)](LICENSE)
+[![Indigenous data: CARE](https://img.shields.io/badge/Indigenous%20data-CARE-4b6f44)](https://github.com/red-cup-engineering/.github/blob/main/GOVERNANCE.md)
+[![Tips welcome](https://img.shields.io/badge/tips-welcome-d4a017)](https://github.com/561-group/.github/blob/main/TIPS.md)
+<!-- 561-group-standards:badges:end -->
+
 Reads a JavaScript source file's leading `/** */` declaration header and transforms it into a candidate skill record and body, purely — no filesystem, no child process, no schema. Reads standard JSDoc (`@description`, `@param`, `@returns`, `@throws`), not an invented tag dialect: a script's own `@skill`/`@verb-phrase`/`@closure-kind`/`@precondition`/`@postcondition`/`@witness`/`@fuel`/`@model` header once displaced that vocabulary; this service reads what a JSDoc tool already reads instead, and refuses anything it does not recognize, those retired tags included.
 
 ## Hoare triples
