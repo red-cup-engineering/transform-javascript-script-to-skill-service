@@ -35,3 +35,14 @@ import { transformJavascriptScriptToSkill } from "@red-cup-engineering/transform
 
 const { record, body, error } = transformJavascriptScriptToSkill(sourceText, "make-a-widget.js");
 ```
+
+
+## Source-witnessed skill repertoire pages (candidate discovery)
+
+`deriveScriptSkillPage(entries, {query, after, limit})` consumes **original source-enumerated, unique, lexicographically ordered** Engineering JavaScript file observations and returns bounded candidate pages. Each record needs `repository` (the real Red Cup owner), `path`, an exact 40-character Git commit, the complete script `source` and matching raw UTF-8 `sha256`. It reuses `transformJavascriptScriptToSkill` and rejects absent leading JSDoc, unknown declaration tags, source hash mismatches, and unnamed script descriptions. `nextAfter` paginates by original repository/path, never by an ephemeral array index.
+
+The reader **scans its supplied source stream**, but emits only the requested page (1–100 candidates). This bounds returned records and downstream harness context, not the cost of rescanning the iterable or verifying Git membership. A caller at hundred-thousand scale should use its original source-index/changed-file cursor and bounded repository selection, not load a million full scripts into a model. The owner must independently prove the enumerated files belong to the stated Git commits before admission; `gitMembershipVerified:false` is deliberate. A byte-identical JSDoc header does not establish installed runtime, correct operation semantics, a trusted author, Coesite procedural adoption, Actor authority, or a customer-paid outcome. Every returned candidate declares all four as false.
+
+The receiving operator is the original [Coesite Operations agency repertoire](https://github.com/coesite-operations/operations-services-section) and actual AOE Agency reader, then the existing [skill-to-path projector](https://github.com/red-cup-engineering/project-skill-to-path-service) **only for selected, separately admitted skills**. Claude/Codex harnesses and MetroPlat continue to resolve real source-owned Office, Duty, Skill, Character/Incumbency and grants. This function adds no alternate skill registry or deployment side channel. The downstream Coesite `cultivate-operational-repertoire` practice is the intended operating consumer; first verify its exact source and release before claiming adoption.
+
+The `test/script-skill-page.test.mjs` suite generates 100,000 source observations *in an iterator*, checks stable 12-item paging and candidate bounds and refuses hostile/invalid source. The fixture count demonstrates selected-output boundedness, **not** 100,000 actual qualified skills, O(1) lookup or an installed host benchmark.
